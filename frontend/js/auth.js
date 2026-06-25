@@ -2,8 +2,7 @@
 // AUTH — Signup and Login form handling
 // ============================================
 
-const API_BASE = 'http://127.0.0.1:5000';
-
+const API_BASE = 'https://oraclerealty-api.onrender.com';
 const signupForm = document.getElementById('signup-form');
 const loginForm = document.getElementById('login-form');
 const errorMsg = document.getElementById('error-message');

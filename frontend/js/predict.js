@@ -1,3 +1,8 @@
+// ============================================
+// PREDICT — Handle estimate form submission
+// ============================================
+
+const API_BASE_URL = 'https://oraclerealty-api.onrender.com';
 
 const predictForm = document.getElementById('predict-form');
 const errorMessage = document.getElementById('error-message');
@@ -68,7 +73,6 @@ if (predictForm) {
     });
 }
 
-// Tick-up number animation — shows both INR (Lakhs) and KSh
 function animateNumber(target, element) {
     if (!element) return;
     const duration = 900;
@@ -92,19 +96,11 @@ function animateNumber(target, element) {
     requestAnimationFrame(tick);
 }
 
-// Save each estimate to localStorage for the history tab
 function saveToHistory(entry) {
     const key = 'oraclerealty-history';
     const raw = localStorage.getItem(key);
     const history = raw ? JSON.parse(raw) : [];
-
-    history.unshift({
-        ...entry,
-        timestamp: new Date().toISOString()
-    });
-
-    const trimmed = history.slice(0, 10);
-    localStorage.setItem(key, JSON.stringify(trimmed));
-
+    history.unshift({ ...entry, timestamp: new Date().toISOString() });
+    localStorage.setItem(key, JSON.stringify(history.slice(0, 10)));
     if (typeof renderHistory === 'function') renderHistory();
 }
