@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OracleRealty — Honest property prices for Bengaluru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/currency-additions.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="navbar__logo">Oracle<span>Realty</span></a>
+        <nav class="navbar__links">
+            <a href="#how-it-works">How it works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="login.html">Log in</a>
+            <a href="signup.html" class="navbar__cta">Get started free</a>
+        </nav>
+        <div class="navbar__right">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-toggle__icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero__inner">
+            <div class="hero__text">
+                <p class="hero__kicker">Bengaluru property market intelligence</p>
+                <h1 class="hero__title">
+                    Stop guessing.<br>
+                    Know what a house<br>
+                    <em>actually</em> costs.
+                </h1>
+                <p class="hero__body">
+                    Agents quote high. Sellers ask more than they expect to get.
+                    OracleRealty cuts through the noise — giving you a data-backed
+                    price estimate based on 13,320 real transactions, not wishful thinking.
+                </p>
+                <div class="hero__ctas">
+                    <a href="signup.html" class="btn-accent">Get your free estimate</a>
+                    <a href="#how-it-works" class="btn-outline">See how it works</a>
+                </div>
+                <p class="hero__note">No credit card. No agent. Just a number you can trust.</p>
+            </div>
+
+            <div class="hero__visual">
+                <div class="price-preview-card">
+                    <div class="ppc__top">
+                        <span class="ppc__location">📍 Whitefield, Bengaluru</span>
+                        <span class="ppc__badge">Live estimate</span>
+                    </div>
+                    <div class="ppc__details">
+                        <span class="ppc__detail">3 BHK</span>
+                        <span class="ppc__dot">·</span>
+                        <span class="ppc__detail">1,450 sq ft</span>
+                        <span class="ppc__dot">·</span>
+                        <span class="ppc__detail">2 bath</span>
+                    </div>
+                    <div class="ppc__price-wrap">
+                        <span class="ppc__label">Estimated value</span>
+                        <span class="ppc__price" id="ppc-price">₹74.38 Lakhs</span>
+                        <span class="ppc__price-ksh">≈ KSh 11,454,520</span>
+                    </div>
+                    <div class="ppc__bar-track"><div class="ppc__bar"></div></div>
+                    <div class="ppc__range">
+                        <span>₹68L <span class="ppc__range-label">conservative</span></span>
+                        <span>₹81L <span class="ppc__range-label">optimistic</span></span>
+                    </div>
+                </div>
+                <div class="floating-stat fs--left reveal-left">
+                    <span class="fs__value">172</span>
+                    <span class="fs__label">areas covered</span>
+                </div>
+                <div class="floating-stat fs--right reveal-right">
+                    <span class="fs__value">&lt;1s</span>
+                    <span class="fs__label">estimate time</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="trust-bar">
+            <span class="trust-bar__item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                13,320 verified transactions
+            </span>
+            <span class="trust-bar__sep"></span>
+            <span class="trust-bar__item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                No agent commission
+            </span>
+            <span class="trust-bar__sep"></span>
+            <span class="trust-bar__item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Free for individual buyers
+            </span>
+            <span class="trust-bar__sep"></span>
+            <span class="trust-bar__item">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Updated with real market data
+            </span>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works">
+        <div class="section__inner">
+            <div class="section__header">
+                <p class="section__eyebrow">The process</p>
+                <h2 class="section__title">Three inputs. One number you can act on.</h2>
+                <p class="section__body">We built this for the person who's tired of calling three agents and getting three wildly different answers.</p>
+            </div>
+            <div class="how-steps">
+                <div class="how-step reveal">
+                    <div class="how-step__num">01</div>
+                    <div class="how-step__content">
+                        <h3>Pick the neighbourhood</h3>
+                        <p>Choose from 172 Bengaluru localities — from Koramangala to Devanahalli. Our model treats each area separately, because ₹5,000/sqft means very different things in different parts of the city.</p>
+                    </div>
+                </div>
+                <div class="how-step reveal">
+                    <div class="how-step__num">02</div>
+                    <div class="how-step__content">
+                        <h3>Tell us about the property</h3>
+                        <p>Total square footage, number of bedrooms, number of bathrooms. That's it. Our model was trained on these exact inputs from 13,320 actual sales — so it knows what matters and what's noise.</p>
+                    </div>
+                </div>
+                <div class="how-step reveal">
+                    <div class="how-step__num">03</div>
+                    <div class="how-step__content">
+                        <h3>Get a real estimate</h3>
+                        <p>In under a second you'll see a price in lakhs — the same format agents use, but without the markup. Use it to negotiate, to verify a listing price, or just to understand the market before you commit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section class="section locations-section">
+        <div class="section__inner">
+            <div class="section__header">
+                <p class="section__eyebrow">Where we cover</p>
+                <h2 class="section__title">Bengaluru's most active property markets</h2>
+                <p class="section__body">Each area has its own price profile. Here's a snapshot of what the data says about the neighbourhoods people ask about most.</p>
+            </div>
+            <div class="loc-grid">
+                <div class="loc-card reveal">
+                    <div class="loc-card__header"><span class="loc-card__name">Whitefield</span><span class="loc-card__tag">IT Corridor</span></div>
+                    <span class="loc-card__range">₹4,200 – 6,800 /sqft</span>
+                    <span class="loc-card__ksh">≈ KSh 6,468 – 10,472 /sqft</span>
+                    <p class="loc-card__note">Strong rental demand from tech workers. Prices held steady through 2023–24 despite broader market softness.</p>
+                </div>
+                <div class="loc-card reveal">
+                    <div class="loc-card__header"><span class="loc-card__name">Sarjapur Road</span><span class="loc-card__tag">High Growth</span></div>
+                    <span class="loc-card__range">₹5,000 – 7,500 /sqft</span>
+                    <span class="loc-card__ksh">≈ KSh 7,700 – 11,550 /sqft</span>
+                    <p class="loc-card__note">One of the fastest-appreciating corridors. Infrastructure improvements have pushed prices up consistently.</p>
+                </div>
+                <div class="loc-card reveal">
+                    <div class="loc-card__header"><span class="loc-card__name">Electronic City</span><span class="loc-card__tag">Value Pick</span></div>
+                    <span class="loc-card__range">₹3,500 – 5,200 /sqft</span>
+                    <span class="loc-card__ksh">≈ KSh 5,390 – 8,008 /sqft</span>
+                    <p class="loc-card__note">Best value for buyers who work in south Bengaluru. Large inventory keeps prices competitive.</p>
+                </div>
+                <div class="loc-card reveal">
+                    <div class="loc-card__header"><span class="loc-card__name">Hebbal</span><span class="loc-card__tag">North Premium</span></div>
+                    <span class="loc-card__range">₹6,000 – 9,000 /sqft</span>
+                    <span class="loc-card__ksh">≈ KSh 9,240 – 13,860 /sqft</span>
+                    <p class="loc-card__note">Premium north Bengaluru. Lake-view properties command a 20–30% premium over inland equivalents.</p>
+                </div>
+                <div class="loc-card reveal">
+                    <div class="loc-card__header"><span class="loc-card__name">Marathahalli</span><span class="loc-card__tag">Central East</span></div>
+                    <span class="loc-card__range">₹5,500 – 8,000 /sqft</span>
+                    <span class="loc-card__ksh">≈ KSh 8,470 – 12,320 /sqft</span>
+                    <p class="loc-card__note">Busy residential-commercial belt. Outer Ring Road access makes it a perennial top-10 for buyer enquiries.</p>
+                </div>
+                <div class="loc-card reveal">
+                    <div class="loc-card__header"><span class="loc-card__name">Bannerghatta Road</span><span class="loc-card__tag">South Green</span></div>
+                    <span class="loc-card__range">₹4,800 – 7,200 /sqft</span>
+                    <span class="loc-card__ksh">≈ KSh 7,392 – 11,088 /sqft</span>
+                    <p class="loc-card__note">Tree-lined corridor near the national park. Good mix of affordability and green living for families.</p>
+                </div>
+            </div>
+            <div class="section__cta"><a href="signup.html" class="btn-accent">Check your area →</a></div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section pricing-section" id="pricing">
+        <div class="section__inner">
+            <div class="section__header">
+                <p class="section__eyebrow">Pricing</p>
+                <h2 class="section__title">Free for buyers. Powerful for professionals.</h2>
+                <p class="section__body">Individual buyers and renters can use OracleRealty at no cost. Agents, developers, and investors who need more get more.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="pricing-card__header">
+                        <span class="pricing-card__tier">Free</span>
+                        <div class="pricing-card__price"><span class="pricing-card__amount">₹0</span><span class="pricing-card__period">forever</span></div>
+                        <span class="pricing-card__ksh">KSh 0</span>
+                        <p class="pricing-card__desc">Everything a buyer or renter needs to walk into a negotiation prepared.</p>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li class="feature-item feature-item--yes">Unlimited price estimates</li>
+                        <li class="feature-item feature-item--yes">172 Bengaluru locations</li>
+                        <li class="feature-item feature-item--yes">Estimate history (last 7 days)</li>
+                        <li class="feature-item feature-item--yes">1 active property listing</li>
+                        <li class="feature-item feature-item--no">Saved favourites</li>
+                        <li class="feature-item feature-item--no">Market trend reports</li>
+                        <li class="feature-item feature-item--no">Price alerts</li>
+                        <li class="feature-item feature-item--no">Bulk estimations (CSV)</li>
+                    </ul>
+                    <a href="signup.html" class="pricing-card__cta pricing-card__cta--outline">Get started free</a>
+                </div>
+                <div class="pricing-card pricing-card--pro reveal">
+                    <div class="pricing-card__popular">Most popular</div>
+                    <div class="pricing-card__header">
+                        <span class="pricing-card__tier">Pro</span>
+                        <div class="pricing-card__price"><span class="pricing-card__amount">₹499</span><span class="pricing-card__period">/ month</span></div>
+                        <span class="pricing-card__ksh">≈ KSh 769 / month</span>
+                        <p class="pricing-card__desc">For serious buyers, sellers, and agents who need to move fast with confidence.</p>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li class="feature-item feature-item--yes">Everything in Free</li>
+                        <li class="feature-item feature-item--yes">Unlimited estimate history</li>
+                        <li class="feature-item feature-item--yes">Save up to 50 favourite listings</li>
+                        <li class="feature-item feature-item--yes">Unlimited property listings</li>
+                        <li class="feature-item feature-item--yes">Monthly market trend reports</li>
+                        <li class="feature-item feature-item--yes">Price alerts for saved areas</li>
+                        <li class="feature-item feature-item--no">Bulk estimations (CSV)</li>
+                        <li class="feature-item feature-item--no">API access</li>
+                    </ul>
+                    <a href="signup.html" class="pricing-card__cta pricing-card__cta--accent">Start 14-day free trial</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="pricing-card__header">
+                        <span class="pricing-card__tier">Enterprise</span>
+                        <div class="pricing-card__price"><span class="pricing-card__amount">Custom</span><span class="pricing-card__period">pricing</span></div>
+                        <span class="pricing-card__ksh">Contact for KSh quote</span>
+                        <p class="pricing-card__desc">For developers, investment firms, and agencies running high-volume property analysis.</p>
+                    </div>
+                    <ul class="pricing-card__features">
+                        <li class="feature-item feature-item--yes">Everything in Pro</li>
+                        <li class="feature-item feature-item--yes">Bulk CSV estimations</li>
+                        <li class="feature-item feature-item--yes">REST API access</li>
+                        <li class="feature-item feature-item--yes">Custom location coverage</li>
+                        <li class="feature-item feature-item--yes">Dedicated support</li>
+                        <li class="feature-item feature-item--yes">White-label option</li>
+                        <li class="feature-item feature-item--yes">SLA guarantee</li>
+                        <li class="feature-item feature-item--yes">Team accounts</li>
+                    </ul>
+                    <a href="mailto:shawgroves600@gmail.com?subject=Enterprise%20Plan%20Enquiry%20-%20OracleRealty" class="pricing-card__cta pricing-card__cta--outline">Contact us</a>
+                </div>
+            </div>
+            <p class="pricing-note">Pro features shown are on the product roadmap. The Free tier is fully functional today. KSh values use an approximate exchange rate of 1 INR ≈ 1.54 KSh.</p>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="final-cta__inner">
+            <h2 class="final-cta__title">The asking price is not the market price.</h2>
+            <p class="final-cta__body">Find out what a property is actually worth before you make an offer, accept an offer, or sign anything.</p>
+            <a href="signup.html" class="btn-accent btn-accent--lg">Create your free account</a>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-section__inner">
+            <div class="contact-section__text">
+                <span class="contact-section__eyebrow">Get in touch</span>
+                <h2 class="contact-section__title">Have a question? We're easy to reach.</h2>
+                <p class="contact-section__body">Whether it's a question about an estimate, a partnership enquiry, or feedback on the platform — reach out on WhatsApp for a quick reply, or send us an email for anything more detailed.</p>
+            </div>
+
+            <div class="contact-cards">
+
+                <!-- WhatsApp card: your number is in the href only, not shown on screen -->
+                <a href="https://wa.me/254721845814?text=Hi%20OracleRealty%2C%20I%20have%20a%20question%20about%20the%20platform." target="_blank" rel="noopener" class="contact-card contact-card--whatsapp">
+                    <div class="contact-card__icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                            <path d="M12.04 0C5.39 0 0 5.39 0 12.04c0 2.122.555 4.198 1.61 6.03L0 24l5.93-1.557A12.03 12.03 0 0012.04 24c6.65 0 12.04-5.39 12.04-12.04C24.08 5.39 18.69 0 12.04 0zm0 21.97a9.93 9.93 0 01-5.06-1.385l-.363-.215-3.68.966.982-3.586-.236-.368a9.93 9.93 0 01-1.522-5.293c0-5.49 4.467-9.957 9.957-9.957s9.957 4.467 9.957 9.957-4.467 9.957-9.957 9.957z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-card__content">
+                        <span class="contact-card__label">Chat on WhatsApp</span>
+                        <span class="contact-card__detail">Quick responses during business hours</span>
+                    </div>
+                    <svg class="contact-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
+
+                <!-- Email card: your email is in the href only, not shown on screen -->
+                <a href="mailto:shawgroves600@gmail.com?subject=Inquiry%20from%20OracleRealty%20website" class="contact-card contact-card--email">
+                    <div class="contact-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 6l-10 7L2 6"/>
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        </svg>
+                    </div>
+                    <div class="contact-card__content">
+                        <span class="contact-card__label">Send an email</span>
+                        <span class="contact-card__detail">Replies within 1 business day</span>
+                    </div>
+                    <svg class="contact-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="footer__logo">Oracle<span>Realty</span></span>
+                <p class="footer__tagline">Property price intelligence for the Bengaluru market. Built on real transaction data.</p>
+            </div>
+            <div class="footer__col">
+                <span class="footer__col-title">Product</span>
+                <a href="#how-it-works">How it works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="signup.html">Sign up</a>
+                <a href="login.html">Log in</a>
+            </div>
+            <div class="footer__col">
+                <span class="footer__col-title">Dashboard</span>
+                <a href="login.html">Price Estimator</a>
+                <a href="login.html">My Estimates</a>
+                <a href="login.html">Saved Properties</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 OracleRealty.</span>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

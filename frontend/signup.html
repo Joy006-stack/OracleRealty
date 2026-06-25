@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — OracleRealty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="navbar__logo">Oracle<span>Realty</span></a>
+        <nav class="navbar__links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Log in</a>
+            <a href="signup.html" class="navbar__cta active">Sign up</a>
+        </nav>
+        <div class="navbar__right">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-toggle__icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="auth-card">
+            <h1 class="auth-card__title">Create your account</h1>
+            <p class="auth-card__subtitle">Free forever for individual buyers. No credit card needed.</p>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. Joy Mwangi" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password">
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Create account</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </form>
+            <div id="success-message" class="success-message hidden"></div>
+            <div id="error-message" class="error-message hidden"></div>
+            <p class="auth-card__footer">Already have an account? <a href="login.html" class="link-accent">Log in</a></p>
+        </div>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

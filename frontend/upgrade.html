@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Pro — OracleRealty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/currency-additions.css">
+    <style>
+        .upgrade-page {
+            position: relative;
+            z-index: 1;
+            min-height: calc(100vh - 68px);
+            padding: 3rem 2rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .upgrade-layout {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 2.5rem;
+            max-width: 900px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .plan-summary {
+            background: color-mix(in srgb, var(--surface) 80%, transparent);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--r-xl);
+            padding: 2rem;
+            backdrop-filter: blur(16px);
+        }
+
+        .plan-summary__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-tint);
+            border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--r-full);
+            margin-bottom: 1.25rem;
+        }
+
+        .plan-summary__title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-summary__price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .plan-summary__amount {
+            font-family: var(--font-mono);
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .plan-summary__period {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .plan-summary__ksh {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-family: var(--font-mono);
+        }
+
+        .plan-summary__divider {
+            height: 1px;
+            background: var(--surface-border);
+            margin: 1.5rem 0;
+        }
+
+        .plan-summary__features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-summary__feature {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+        }
+
+        .plan-summary__feature::before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background-color: var(--green-tint);
+            border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M1.5 5l2.5 2.5 4.5-4.5' stroke='%233DD68C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-size: 11px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .plan-summary__trial {
+            background: var(--green-tint);
+            border: 1px solid color-mix(in srgb, var(--green) 20%, transparent);
+            border-radius: var(--r-md);
+            padding: 0.85rem 1rem;
+            font-size: 0.85rem;
+            color: var(--green);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .payment-card {
+            background: color-mix(in srgb, var(--surface) 88%, transparent);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--r-xl);
+            padding: 2rem;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            box-shadow: var(--shadow-float);
+        }
+
+        .payment-card__title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.35rem;
+        }
+
+        .payment-card__subtitle {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .secure-badge svg {
+            width: 14px;
+            height: 14px;
+            color: var(--green);
+        }
+
+        .card-input-wrap {
+            position: relative;
+        }
+
+        .card-input-wrap input {
+            padding-right: 3rem;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+        }
+
+        .card-type-icon {
+            position: absolute;
+            right: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .form-row-half {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        /* PER-FIELD VALIDATION STYLES */
+        .field-error {
+            display: none;
+            font-size: 0.74rem;
+            color: var(--red);
+            margin-top: 0.3rem;
+        }
+
+        .form-group.has-error input {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px var(--red-tint);
+        }
+
+        .form-group.has-error .field-error {
+            display: block;
+        }
+
+        /* ORDER SUMMARY */
+        .order-summary {
+            margin: 1.25rem 0;
+            border-top: 1px solid var(--surface-border);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 1rem 0;
+        }
+
+        .order-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+        }
+
+        .order-row__label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .order-row__amount {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .order-row--today .order-row__label {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .order-row--today .order-row__amount {
+            color: var(--green);
+            font-size: 1rem;
+        }
+
+        .order-row--future {
+            padding-top: 0.6rem;
+            margin-top: 0.2rem;
+            border-top: 1px dashed var(--surface-border);
+        }
+
+        .order-row__future-label {
+            display: block;
+            font-size: 0.72rem;
+            color: var(--text-faint);
+            margin-top: 0.1rem;
+        }
+
+        .order-row__future-amount {
+            text-align: right;
+        }
+
+        .order-row__future-ksh {
+            display: block;
+            font-size: 0.74rem;
+            color: var(--text-faint);
+            font-family: var(--font-mono);
+        }
+
+        .payment-note {
+            font-size: 0.75rem;
+            color: var(--text-faint);
+            text-align: center;
+            margin-top: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .payment-success {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--green-tint);
+            border: 2px solid color-mix(in srgb, var(--green) 30%, transparent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--green);
+        }
+
+        .success-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .success-body {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            max-width: 300px;
+        }
+
+        .success-redirect {
+            font-size: 0.78rem;
+            color: var(--text-faint);
+        }
+
+        @media (max-width: 800px) {
+            .upgrade-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="navbar__logo">Oracle<span>Realty</span></a>
+        <nav class="navbar__links">
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+        <div class="navbar__right">
+            <span id="navbar-user" class="navbar__user hidden"></span>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-toggle__icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="upgrade-page">
+        <div class="upgrade-layout">
+
+            <div class="plan-summary">
+                <div class="plan-summary__badge">✦ OracleRealty Pro</div>
+                <h1 class="plan-summary__title">Upgrade to Pro</h1>
+                <div class="plan-summary__price">
+                    <span class="plan-summary__amount">₹499</span>
+                    <span class="plan-summary__period">/ month</span>
+                </div>
+                <div class="plan-summary__ksh">≈ KSh 769 / month</div>
+                <div class="plan-summary__divider"></div>
+                <ul class="plan-summary__features">
+                    <li class="plan-summary__feature">Everything in the Free plan</li>
+                    <li class="plan-summary__feature">Unlimited estimate history</li>
+                    <li class="plan-summary__feature">Save up to 50 favourite properties</li>
+                    <li class="plan-summary__feature">Unlimited property listings</li>
+                    <li class="plan-summary__feature">Monthly market trend reports</li>
+                    <li class="plan-summary__feature">Price alerts for saved areas</li>
+                    <li class="plan-summary__feature">Priority support</li>
+                </ul>
+                <div class="plan-summary__trial">
+                    🎉 Your first 14 days are completely free. Cancel anytime before then and you won't be charged.
+                </div>
+            </div>
+
+            <div class="payment-card">
+                <h2 class="payment-card__title">Payment details</h2>
+                <p class="payment-card__subtitle">You won't be charged until your 14-day trial ends.</p>
+
+                <div class="secure-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    Secured with 256-bit SSL encryption
+                </div>
+
+                <form id="payment-form">
+                    <div class="form-group" id="group-cardholder">
+                        <label for="cardholder">Cardholder name</label>
+                        <input type="text" id="cardholder" placeholder="As it appears on your card" required autocomplete="cc-name">
+                        <span class="field-error" id="error-cardholder">Please enter the name on your card.</span>
+                    </div>
+
+                    <div class="form-group" id="group-card-number">
+                        <label for="card-number">Card number</label>
+                        <div class="card-input-wrap">
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required autocomplete="cc-number" inputmode="numeric">
+                            <span class="card-type-icon" id="card-icon">💳</span>
+                        </div>
+                        <span class="field-error" id="error-card-number">Enter a valid 16-digit card number.</span>
+                    </div>
+
+                    <div class="form-row-half">
+                        <div class="form-group" id="group-expiry">
+                            <label for="expiry">Expiry date</label>
+                            <input type="text" id="expiry" placeholder="MM / YY" maxlength="7" required autocomplete="cc-exp" inputmode="numeric">
+                            <span class="field-error" id="error-expiry">Use format MM / YY.</span>
+                        </div>
+                        <div class="form-group" id="group-cvv">
+                            <label for="cvv">CVV / CVC</label>
+                            <input type="text" id="cvv" placeholder="123" maxlength="4" required autocomplete="cc-csc" inputmode="numeric">
+                            <span class="field-error" id="error-cvv">Enter a valid 3 or 4-digit CVV.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="group-billing-email">
+                        <label for="billing-email">Billing email</label>
+                        <input type="email" id="billing-email" placeholder="you@example.com" required autocomplete="email">
+                        <span class="field-error" id="error-billing-email">Enter a valid email address.</span>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="order-row order-row--today">
+                            <span class="order-row__label">Due today</span>
+                            <span class="order-row__amount">₹0.00</span>
+                        </div>
+                        <div class="order-row order-row--future">
+                            <div>
+                                <span class="order-row__label">Then, billed monthly</span>
+                                <span class="order-row__future-label">Starting in 14 days · Cancel anytime before</span>
+                            </div>
+                            <div class="order-row__future-amount">
+                                <span class="order-row__amount">₹499 / mo</span>
+                                <span class="order-row__future-ksh">≈ KSh 769 / mo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="pay-btn">
+                        <span class="btn-text">Start free trial</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+
+                    <p class="payment-note">
+                        By starting your trial you agree to OracleRealty's Terms of Service. Your card will not be charged during the 14-day trial period. You can cancel at any time from your dashboard.
+                    </p>
+                </form>
+
+                <div id="payment-success" class="payment-success hidden">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h3 class="success-title">You're on Pro!</h3>
+                    <p class="success-body">Your 14-day free trial has started. You now have access to market reports, price alerts, unlimited history, and more.</p>
+                    <p class="success-redirect">Taking you back to your dashboard...</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/upgrade.js"></script>
+</body>
+</html>

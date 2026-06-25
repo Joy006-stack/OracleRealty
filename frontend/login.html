@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In — OracleRealty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="navbar__logo">Oracle<span>Realty</span></a>
+        <nav class="navbar__links">
+            <a href="index.html">Home</a>
+            <a href="login.html" class="active">Log in</a>
+            <a href="signup.html" class="navbar__cta">Sign up</a>
+        </nav>
+        <div class="navbar__right">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-toggle__icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="auth-card">
+            <h1 class="auth-card__title">Welcome back</h1>
+            <p class="auth-card__subtitle" id="login-subtitle">Log in to access your estimates, listings, and saved properties.</p>
+
+            <!-- Shown only when redirected from a protected page -->
+            <div id="redirect-notice" class="redirect-notice hidden">
+                🔒 Please log in to access your dashboard.
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Your password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Log in</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </form>
+
+            <div id="success-message" class="success-message hidden"></div>
+            <div id="error-message" class="error-message hidden"></div>
+
+            <p class="auth-card__footer">Don't have an account? <a href="signup.html" class="link-accent">Sign up free</a></p>
+        </div>
+    </main>
+
+    <style>
+        .redirect-notice {
+            background: var(--accent-tint);
+            border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: var(--r-sm);
+            margin-bottom: 1.25rem;
+        }
+    </style>
+
+    <script src="js/theme.js"></script>
+    <script>
+        // Show redirect notice if user was sent here from a protected page
+        const params = new URLSearchParams(window.location.search);
+        const next = params.get('next');
+        if (next) {
+            document.getElementById('redirect-notice').classList.remove('hidden');
+        }
+    </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
